@@ -35,15 +35,19 @@ public class Scolarite {
     public void afficher(){
         System.out.println("la liste des etudiants est:");
         for (int i = 0; i < nombreEtudiant ; i++){
+            System.out.print(i+1+".");
             etudiants[i].afficher();
         }
     }
 
-    public void afficher(float seuil){
+    public void afficher(double seuil){
+        int j = 1;
         System.out.println("la liste des etudiants superieur a " + seuil + "sont:");
         for (int i = 0; i < nombreEtudiant ; i++){
             if(etudiants[i].calculerMoyenne() >= seuil){
+                System.out.print(j+".");
                 etudiants[i].afficher();
+                j++;
             }
         }
     }

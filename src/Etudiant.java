@@ -3,31 +3,37 @@ public class Etudiant {
     private String nom;
     private String prenom;
     private String matricule;
-    private double moyMod1;
-    private double moyMod2;
-    private double moyMod3;
+    private double[] moyModule;
+    private final int NB_MOD = 3;
 
-    public Etudiant(String nom,String prenom,String matricule,double moyMod1,double moyMod2,double moyMod3){
+    public Etudiant(String nom,String prenom,String matricule,double[] moyModule){
         this.nom = nom;
         this.prenom = prenom;
         this.matricule = matricule;
-        this.moyMod1 = moyMod1;
-        this.moyMod2 = moyMod2;
-        this.moyMod3 = moyMod3;
+        this.moyModule = new double[NB_MOD];
+        for (int i = 0; i < NB_MOD; i++) {
+            this.moyModule[i] = moyModule[i];
+        }
+
     }
 
     public Etudiant(String nom,String prenom,String matricule){
         this.nom = nom;
         this.prenom = prenom;
         this.matricule = matricule;
+        moyModule = new double[NB_MOD];
     }
 
     public void afficher(){
-        System.out.println("Je suis " + nom + " " + prenom + ", mon matricule est : " + matricule + ". Mes notes dans les 3 modules sont : " + moyMod1 + ", " + moyMod2 + ", " + moyMod3 + ".");
+        System.out.println("Je suis " + nom + " " + prenom + ", mon matricule est : " + matricule + ".");
     }
 
     public double calculerMoyenne(){
-        return (moyMod1+moyMod2+moyMod3) / 3;
+        int somme = 0;
+        for(int i = 0 ; i < NB_MOD ; i++){
+            somme += moyModule[i];
+        }
+        return somme / NB_MOD;
     }
 
 }
